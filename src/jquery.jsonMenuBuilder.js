@@ -1,5 +1,5 @@
 ﻿	(function($) {
-		'use strict';
+		"use strict";
 
 		$.fn.jsonMenuBuilder = function (jsonMenu) {
 
@@ -8,7 +8,7 @@
 
 			// iterate first level
 			var $this = this;
-			$.each(data.sidemenu, function() {
+			$.each(jsonMenu.sidemenu, function() {
 				$this.append(loadMenu(this));
 			});
 			return this;
@@ -26,13 +26,13 @@
 
 			var $li = $("<li>").append($a);
 
-			if (menuItem.sub) {
+			if (menuItem.item) {
 				var $ul = $("<ul>");
 
 				if (level == undefined) level = 2;
 				else level++;
 
-				$.each(menuItem.sub, function () {
+				$.each(menuItem.item, function () {
 					$ul.append(loadMenu(this, level));
 				});
 
